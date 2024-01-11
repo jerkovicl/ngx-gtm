@@ -1,0 +1,7 @@
+{
+  "bracketSpacing": true,
+  "experimentalTernaries": true,
+  "printWidth": 120,
+  "singleQuote": true,
+  "trailingComma": "all"
+}

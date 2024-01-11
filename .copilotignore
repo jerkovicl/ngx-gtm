@@ -1,0 +1,49 @@
+## See http://help.github.com/ignore-files/ for more about ignoring files.
+
+## compiled output
+/dist
+/tmp
+/out-tsc
+**/out/
+**/export/
+## dependencies
+/.yarn/*
+/.pnp.*
+/node_modules/*
+## ignore
+.git-DISABLED/
+.ignore/
+.ignore-*
+## misc
+.angular
+.nx/cache
+/.sass-cache
+.dccache
+/connect.lock
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+.pnpm-debug.log*
+yarn-debug.log*
+**/log/
+**/.log/
+testem.log
+/typings
+.betterer.cache
+.betterer.results
+sonar-project.properties
+## testing
+/coverage/
+.nyc_output/out.json
+.nyc_output/
+cypress/screenshots
+cypress/videos
+reports
+## System Files
+.DS_Store
+Thumbs.db
+## dotenv environment variables file
+.env
+.env.*
+.*.env
+cypress.env.json

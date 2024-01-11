@@ -1,0 +1,12 @@
+# Add files here to ignore them from prettier formatting
+package.json
+package-lock.json
+.angular
+/.nx/cache
+.pnpm-store
+
+/dist
+/coverage
+
+**/.vscode
+**/.husky

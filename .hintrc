@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "web-recommended"
+  ],
+  "formatters": [
+    "html"
+  ],
+  "parsers": [
+    "babel-config",
+    "css",
+    "html",
+    "javascript",
+    "manifest",
+    "typescript-config",
+    "webpack-config"
+  ],
+  "hints": {
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "warning"
+      }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "label": "warning"
+      }
+    ],
+    "axe/parsing": [
+      "default",
+      {
+        "duplicate-id-aria": "warning"
+      }
+    ],
+    "html-checker": [
+      "off",
+      {
+        "details": true
+      }
+    ]
+  }
+}
