@@ -1,6 +1,6 @@
 {
   "name": "@jerkovicl/ngx-gtm",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^17.0.9",
     "@angular/core": "^17.0.9"
