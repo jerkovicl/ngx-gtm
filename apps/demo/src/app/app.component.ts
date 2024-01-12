@@ -2,7 +2,7 @@ import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { DataLayerService } from '@jerkovicl/ngx-gtm';
-import { filter } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   standalone: true,
