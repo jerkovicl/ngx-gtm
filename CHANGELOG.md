@@ -1,3 +1,16 @@
+## [1.0.1](https://github.com/jerkovicl/ngx-gtm/compare/v1.0.0...v1.0.1) (2024-01-12)
+
+
+### Bug Fixes
+
+* **ngx-gtm:** added comment in example app about tag id ([3f99bc9](https://github.com/jerkovicl/ngx-gtm/commit/3f99bc99549b9430aa22f7b8358bcd03c8b7a883))
+
+
+### Chores
+
+* **ngx-gtm,demo:** improve README ([ec48e74](https://github.com/jerkovicl/ngx-gtm/commit/ec48e740ab977de7953459189648b9b377619965))
+* **ngx-gtm,demo:** improve README ([ee717c4](https://github.com/jerkovicl/ngx-gtm/commit/ee717c437f7ed608e4c575456fc4893dc6359a97))
+
 ## 1.0.0 (2024-01-12)
 
 
