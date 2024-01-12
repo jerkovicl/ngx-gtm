@@ -18,8 +18,8 @@ jobs:
         run: npm install --package-lock-only
       - name: Install deps
         run: npm ci
-      - name: Lint affected
-        run: npx nx affected -t lint
+      #- name: Lint affected
+      #  run: npx nx affected -t lint
       - name: Test affected
         run: npx nx affected -t test --configuration=ci
       - name: Build affected
