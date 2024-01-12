@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/jerkovicl/ngx-gtm/compare/v1.0.1...v1.0.2) (2024-01-12)
+
+
+### Bug Fixes
+
+* **ngx-gtm,demo:** update versions of workflow actions ([059d678](https://github.com/jerkovicl/ngx-gtm/commit/059d6784f951118cc01fcd697d2b24d3395fe854))
+
 ## [1.0.1](https://github.com/jerkovicl/ngx-gtm/compare/v1.0.0...v1.0.1) (2024-01-12)
 
 
