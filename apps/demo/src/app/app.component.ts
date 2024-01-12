@@ -1,8 +1,9 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, DestroyRef, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { DataLayerService } from '@jerkovicl/ngx-gtm';
-import { filter } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   standalone: true,
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit {
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   private readonly router: Router = inject(Router);
   private readonly dataLayerService: DataLayerService = inject(DataLayerService);
+  private readonly platform: Object = inject(PLATFORM_ID);
   ngOnInit(): void {
     this.triggerRouterEvents();
   }
@@ -29,12 +31,14 @@ export class AppComponent implements OnInit {
       )
       .subscribe((event: NavigationEnd) => {
         /** START : Code to track page view using GTM */
-        const gtmTag = {
-          event: 'page',
-          pageName: event.urlAfterRedirects,
-          data: {},
-        };
-        this.dataLayerService.logPageView(gtmTag);
+        if (isPlatformBrowser(this.platform)) {
+          const gtmTag = {
+            event: 'page',
+            pageName: event.urlAfterRedirects,
+            data: {},
+          };
+          this.dataLayerService.logPageView(gtmTag);
+        }
         /** END : Code to track page view using GTM */
       });
   }
