@@ -16,7 +16,7 @@ module.exports = [
   },
   {
     linterOptions: {
-      reportUnusedDisableDirectives: true,
+      reportUnusedDisableDirectives: 'warn',
     },
     languageOptions: {
       parserOptions: { ecmaVersion: 2022 },
