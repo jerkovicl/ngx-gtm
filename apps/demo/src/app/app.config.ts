@@ -27,7 +27,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideGtm({
       enabled: true,
-      id: 'xxxx',
+      id: 'xxxx', // tag manager id
     }),
   ],
 };
