@@ -2,6 +2,7 @@
 
 [![Build](https://github.com/jerkovicl/ngx-gtm/actions/workflows/ci.yml/badge.svg)](https://github.com/jerkovicl/ngx-gtm/actions/workflows/ci.yml)
 [![Release](https://github.com/jerkovicl/ngx-gtm/actions/workflows/release.yml/badge.svg)](https://github.com/jerkovicl/ngx-gtm/actions/workflows/release.yml)
+![NPM Downloads](https://img.shields.io/npm/dt/@jerkovicl/ngx-gtm)
 
 Angular library that automatically injects the script tag required to use [Google Tag Manager](https://tagmanager.google.com/?hl=en).
 
