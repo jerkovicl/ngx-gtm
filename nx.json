@@ -55,15 +55,6 @@
       "cache": true,
       "inputs": ["default", "^production"]
     },
-    "lint": {
-      "cache": true,
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore",
-        "{workspaceRoot}/eslint.config.js"
-      ]
-    },
     "release": {
       "changelog": {
         "workspaceChangelog": {
@@ -73,6 +64,15 @@
       },
       "projects": ["libs/*"],
       "releaseTagPattern": "{version}"
+    },
+    "@nx/eslint:lint": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.js"
+      ]
     }
   }
 }
