@@ -4,14 +4,16 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Git Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-      - uses: nrwl/nx-set-shas@v4
+      - name: Sets the base and head SHAs
+        uses: nrwl/nx-set-shas@v4
       - name: Sync lockfile
         run: npm install --package-lock-only
       - name: Install deps
