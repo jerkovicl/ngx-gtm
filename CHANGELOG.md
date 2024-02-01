@@ -1,3 +1,16 @@
+## [1.1.0](https://github.com/jerkovicl/ngx-gtm/compare/v1.0.2...v1.1.0) (2024-02-01)
+
+
+### Features
+
+* **ngx-gtml:** update angular to v17.1 ([c46ad7d](https://github.com/jerkovicl/ngx-gtm/commit/c46ad7d3fd317f77d0d4e3439610c0a8c5140831))
+
+
+### Bug Fixes
+
+* **ngx-gtm:** change release workflow ([5fd83dd](https://github.com/jerkovicl/ngx-gtm/commit/5fd83dd4b3ba165c56c426dec0312fd299a3fbf6))
+* **ngx-gtm:** rename release.config.js to .releaserc.js ([0b44c4d](https://github.com/jerkovicl/ngx-gtm/commit/0b44c4da8131a104b300fe5a794f6380cf6f2257))
+
 ## [1.0.2](https://github.com/jerkovicl/ngx-gtm/compare/v1.0.1...v1.0.2) (2024-01-12)
 
 
