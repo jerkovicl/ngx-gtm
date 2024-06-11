@@ -2,14 +2,14 @@
   "name": "@jerkovicl/ngx-gtm",
   "version": "1.1.0",
   "peerDependencies": {
-    "@angular/common": "^17.1.2",
-    "@angular/core": "^17.1.2"
+    "@angular/common": ">=16 <18",
+    "@angular/core": ">=16 <18"
   },
   "publishConfig": {
     "access": "public"
   },
   "sideEffects": false,
   "dependencies": {
-    "tslib": "^2.6.2"
+    "tslib": "^2.6.3"
   }
 }

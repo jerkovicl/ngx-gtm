@@ -16,7 +16,10 @@
     }
   },
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
@@ -41,19 +44,31 @@
           "codeCoverage": true
         }
       },
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
+      "inputs": [
+        "default",
+        "^production",
+        "{workspaceRoot}/jest.preset.js"
+      ],
       "options": {
         "passWithNoTests": true
       }
     },
     "build": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
     },
     "e2e": {
       "cache": true,
-      "inputs": ["default", "^production"]
+      "inputs": [
+        "default",
+        "^production"
+      ]
     },
     "release": {
       "changelog": {
@@ -62,7 +77,9 @@
           "file": true
         }
       },
-      "projects": ["libs/*"],
+      "projects": [
+        "libs/*"
+      ],
       "releaseTagPattern": "{version}"
     },
     "@nx/eslint:lint": {
@@ -74,5 +91,6 @@
         "{workspaceRoot}/eslint.config.js"
       ]
     }
-  }
+  },
+  "useInferencePlugins": false
 }

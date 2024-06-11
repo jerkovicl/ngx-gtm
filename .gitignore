@@ -35,6 +35,7 @@
 # misc
 .angular
 .nx/cache
+.nx/workspace-data
 /.sass-cache
 .dccache
 /connect.lock
