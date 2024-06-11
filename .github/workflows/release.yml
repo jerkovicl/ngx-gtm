@@ -15,7 +15,7 @@ jobs:
       - name: Sets the base and head SHAs
         uses: nrwl/nx-set-shas@v4
       - name: Sync lockfile
-        run: npm install --package-lock-only
+        run: npm install --package-lock-only --force
       - name: Install deps
         run: npm ci
       #- name: Lint
