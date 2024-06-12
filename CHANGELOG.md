@@ -1,3 +1,19 @@
+## [1.2.0](https://github.com/jerkovicl/ngx-gtm/compare/v1.1.0...v1.2.0) (2024-06-12)
+
+### Features
+
+* **ngx-gtm:** update angular to v18, nx to v19 ([e8126ec](https://github.com/jerkovicl/ngx-gtm/commit/e8126ec665e1f5b254f2bfef52ea1c8f4e4ffbff))
+
+### Bug Fixes
+
+* **ngx-gtm:** change ci and release workflow ([42ac08c](https://github.com/jerkovicl/ngx-gtm/commit/42ac08c55966d8a9263f42cdffb3a4e217f460fd))
+* **ngx-gtm:** change ci workflow ([45910b4](https://github.com/jerkovicl/ngx-gtm/commit/45910b460b03edb9205c4773fae7ed35f5ec5124))
+
+### Chores
+
+* **ngx-gtm:** temp fix for eslint v9 ([d10f316](https://github.com/jerkovicl/ngx-gtm/commit/d10f3164f8947d0733b47a1c3650c731188836bc))
+* **ngx-gtm:** temp fix for eslint v9 ([d8fe0eb](https://github.com/jerkovicl/ngx-gtm/commit/d8fe0eb2f2fa20ff0f23674a03c9af4c0953af88))
+
 ## [1.1.0](https://github.com/jerkovicl/ngx-gtm/compare/v1.0.2...v1.1.0) (2024-02-01)
 
 
