@@ -17,7 +17,7 @@ jobs:
       - name: Sync lockfile
         run: npm install --package-lock-only --force
       - name: Install deps
-        run: npm ci
+        run: npm ci --force
       #- name: Lint
       #  run: npx nx run-many -t lint
       - name: Test
