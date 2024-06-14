@@ -182,5 +182,5 @@ module.exports = [
     files: ['**/*.json'],
     rules: {},
   })),
-  { ignores: ['/libs/**/.storybook/**', '/apps/**/.storybook/**', '!.storybook'] },
+  { ignores: ['/libs/**/.storybook/**', '/apps/**/.storybook/**', '!.storybook', 'node_modules'] },
 ];
