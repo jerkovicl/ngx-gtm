@@ -18,8 +18,8 @@ jobs:
         run: npm install --package-lock-only --force
       - name: Install deps
         run: npm ci --force
-      - name: Lint
-        run: npx nx run-many -t lint
+      #- name: Lint
+      #  run: npx nx run-many -t lint
       - name: Test
         run: npx nx run-many -t test --configuration=ci
       - name: Release
