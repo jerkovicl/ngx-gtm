@@ -1,4 +1,5 @@
 const { FlatCompat } = require('@eslint/eslintrc');
+const { join } = require('path');
 const nxEslintPlugin = require('@nx/eslint-plugin');
 const angularEslintEslintPlugin = require('@angular-eslint/eslint-plugin');
 const globals = require('globals');
@@ -19,7 +20,11 @@ module.exports = [
       reportUnusedDisableDirectives: 'warn',
     },
     languageOptions: {
-      parserOptions: { ecmaVersion: 2022 },
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: join(__dirname, './tsconfig.*?.json'),
+        ecmaVersion: 2022,
+      },
       globals: { ...globals.es2022, ...globals.node, ...globals.jest },
     },
   },
@@ -84,22 +89,6 @@ module.exports = [
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
       '@typescript-eslint/no-inferrable-types': [0, 'ignore-params', 'ignore-properties', 'no-unused-vars'],
-      '@typescript-eslint/ban-types': [
-        'error',
-        {
-          types: {
-            String: false,
-            Boolean: false,
-            Number: false,
-            Symbol: false,
-            '{}': false,
-            Object: false,
-            object: false,
-            Function: false,
-          },
-          extendDefaults: true,
-        },
-      ],
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/prefer-destructuring': 'warn',
@@ -110,7 +99,6 @@ module.exports = [
       '@typescript-eslint/promise-function-async': 'error',
       '@typescript-eslint/return-await': 2,
       '@typescript-eslint/require-await': 'error',
-      '@typescript-eslint/no-useless-template-literals': 'error',
       '@typescript-eslint/switch-exhaustiveness-check': [
         'error',
         { allowDefaultCaseForExhaustiveSwitch: false, requireDefaultForNonUnion: true },
@@ -168,14 +156,10 @@ module.exports = [
       '@angular-eslint/template/prefer-control-flow': 'error',
     },
   })),
-  ...compat.config({ extends: ['plugin:node/recommended', 'plugin:@nx/javascript'] }).map((config) => ({
+  ...compat.config({ extends: ['plugin:@nx/javascript'] }).map((config) => ({
     ...config,
     files: ['**/*.js', '**/*.jsx'],
-    rules: {
-      'node/handle-callback-err': ['error', '^(e|err|error)$'],
-      'node/no-callback-literal': 'error',
-      'node/no-sync': 'error',
-    },
+    rules: {},
   })),
   ...compat.config({ parser: 'jsonc-eslint-parser' }).map((config) => ({
     ...config,

@@ -48,7 +48,19 @@ module.exports = [
     files: ['**/*.json'],
     rules: {
       ...config.rules,
-      '@nx/dependency-checks': 'error',
+      '@nx/dependency-checks': [
+        'error',
+        {
+          buildTargets: ['build'], // add non standard build target names
+          checkMissingDependencies: true, // toggle to disable
+          checkObsoleteDependencies: true, // toggle to disable
+          checkVersionMismatches: true, // toggle to disable
+          ignoredDependencies: ['tslib'], // these libs will be omitted from checks
+          ignoredFiles: [], // list of files that should be skipped for check
+          includeTransitiveDependencies: false, // collect dependencies transitively from children
+          useLocalPathsForWorkspaceDependencies: false, // toggle to disable
+        },
+      ],
     },
   })),
 ];

@@ -2,8 +2,8 @@
   "name": "@jerkovicl/ngx-gtm",
   "version": "1.2.0",
   "peerDependencies": {
-    "@angular/common": ">=16 <=18",
-    "@angular/core": ">=16 <=18"
+    "@angular/common": ">=16 <19",
+    "@angular/core": ">=16 <19"
   },
   "publishConfig": {
     "access": "public"

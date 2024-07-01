@@ -8,6 +8,7 @@ import { filter } from 'rxjs/operators';
 @Component({
   standalone: true,
   imports: [RouterModule],
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'ngx-gtm-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
