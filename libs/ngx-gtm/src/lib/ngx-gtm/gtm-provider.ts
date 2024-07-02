@@ -1,5 +1,11 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { ENVIRONMENT_INITIALIZER, InjectionToken, makeEnvironmentProviders, PLATFORM_ID } from '@angular/core';
+import {
+  ENVIRONMENT_INITIALIZER,
+  InjectionToken,
+  makeEnvironmentProviders,
+  PLATFORM_ID,
+  type EnvironmentProviders,
+} from '@angular/core';
 
 function googleTagManagerScript(id: string): string {
   return ` window.dataLayer = window.dataLayer || []; (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -33,7 +39,7 @@ export type GoogleTagManagerConfiguration = Readonly<{
  * @param config The runtime configuration for the Google Tag Manager providers.
  * @returns the Google Tag Manager providers.
  */
-export function provideGtm(config: GoogleTagManagerConfiguration) {
+export function provideGtm(config: GoogleTagManagerConfiguration): EnvironmentProviders {
   return makeEnvironmentProviders([
     { provide: GTM_CONFIG_TOKEN, useValue: config },
     {
