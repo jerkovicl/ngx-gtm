@@ -1,3 +1,21 @@
+## [1.2.1](https://github.com/jerkovicl/ngx-gtm/compare/v1.2.0...v1.2.1) (2024-07-02)
+
+### Bug Fixes
+
+* **ngx-gtm:** add return type for provider fn ([c6255af](https://github.com/jerkovicl/ngx-gtm/commit/c6255afbf1e6e2a37945d9e7b5e48fa07467f076))
+
+### Chores
+
+* **repo:** adjust eslint to flat config style ([45115f0](https://github.com/jerkovicl/ngx-gtm/commit/45115f00944e60ad7e2561b2a8c61bf15b34fcc1))
+* **repo:** disable lint workflows until nx bug is fixed ([62bb271](https://github.com/jerkovicl/ngx-gtm/commit/62bb271d7475120095db83b38dbe96901376781e))
+* **repo:** fix eslint configs ([fd2e20e](https://github.com/jerkovicl/ngx-gtm/commit/fd2e20e1d55ee30e14fff04bc0cec95268ca3998))
+* **repo:** remove eslint ignore ([2dbf821](https://github.com/jerkovicl/ngx-gtm/commit/2dbf821f0ad36628f6b3b6da38640c1ca7c394b6))
+* **repo:** sync package-lock.json ([acb6198](https://github.com/jerkovicl/ngx-gtm/commit/acb6198d4b35e30471a9d3ae858ecf15b7c05e92))
+* **repo:** update dependencies ([27661ae](https://github.com/jerkovicl/ngx-gtm/commit/27661ae2bb42e7c3bc46ba657ff994698fc5338b))
+* **repo:** update dependencies ([9fb645a](https://github.com/jerkovicl/ngx-gtm/commit/9fb645aa030ca8fd1f31d48a2ad6004a13a8c2ed))
+* **repo:** update eslint ([72d79ce](https://github.com/jerkovicl/ngx-gtm/commit/72d79ce57959d920f8e2b97a972ee4772cfef169))
+* **repo:** update to latest nx ([6bb4aff](https://github.com/jerkovicl/ngx-gtm/commit/6bb4afffee3226449841b74fbb4d5a414e9c7b05))
+
 ## [1.2.0](https://github.com/jerkovicl/ngx-gtm/compare/v1.1.0...v1.2.0) (2024-06-12)
 
 ### Features
