@@ -28,14 +28,14 @@ describe('provideGtm', () => {
     });
   });
 
-  function fetchScript() {
+  function fetchScript(): HTMLScriptElement {
     const document = getTestBed().inject(DOCUMENT);
     return document.querySelector(
-      `script[src='https://www.googletagmanager.com/gtm.js?id=${id}']`
+      `script[src='https://www.googletagmanager.com/gtm.js?id=${id}']`,
     ) as HTMLScriptElement;
   }
 
-  function configureEnvironment(enabled: boolean) {
+  function configureEnvironment(enabled: boolean): void {
     beforeEach(() => {
       getTestBed().configureTestingModule({
         providers: [provideGtm({ enabled, id })],

@@ -39,6 +39,7 @@ module.exports = tseslint.config(
       'rxjs-angular': fixupPluginRules(rxjsAngularPlugin),
       // @ts-ignore
       json: jsonPlugin,
+      cypress: cypressEslintPlugin,
     },
   },
   {
@@ -170,7 +171,6 @@ module.exports = tseslint.config(
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
-    // extends: [...nxEslintPlugin.configs],
     languageOptions: { parser: tseslint.parser },
     rules: {
       '@typescript-eslint/no-inferrable-types': [0, 'ignore-params', 'ignore-properties'],
@@ -255,9 +255,9 @@ module.exports = tseslint.config(
       '@typescript-eslint/no-deprecated': 'warn',
     },
   },
+  ...storybookPlugin.configs['flat/recommended'],
   {
     files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
-    extends: [storybookPlugin.configs['flat/recommended']],
     rules: {
       'storybook/hierarchy-separator': 'error',
       'storybook/prefer-pascal-case': 'error',
@@ -305,9 +305,8 @@ module.exports = tseslint.config(
   },
   {
     files: ['**/*.js', '**/*.jsx'],
-    // @ts-ignore
-    extends: [nodeEslintPlugin.configs['flat/recommended-script']],
     rules: {
+      ...nodeEslintPlugin.configs['flat/recommended-script'].rules,
       'n/handle-callback-err': ['error', '^(e|err|error)$'],
       'n/no-callback-literal': 'error',
       'n/no-sync': 'error',
@@ -318,8 +317,6 @@ module.exports = tseslint.config(
     ignores: ['package-lock.json'],
     // @ts-ignore
     language: 'json/json',
-    extends: [jsonPlugin.configs['recommended']],
-    // ...jsonPlugin.configs['recommended'],
     rules: {
       'json/no-duplicate-keys': 'error',
       'json/no-empty-keys': 'error',
@@ -353,15 +350,12 @@ module.exports = tseslint.config(
     rules: {
       ...js.configs.recommended.rules,
     },
-    // env: { jest: true },
   },
   {
     files: ['**/*.cy.ts'],
-    extends: [cypressEslintPlugin.configs.recommended],
     rules: {
-      //...js.configs.recommended.rules,
+      ...cypressEslintPlugin.configs.recommended.rules,
     },
-    // env: { 'cypress/globals': true },
   },
   {
     ignores: [
@@ -371,6 +365,8 @@ module.exports = tseslint.config(
       'node_modules',
       'dist',
       '/apps/**/assets/**',
+      '**/package-lock.json',
+      '**/README.md',
       '**/eslint.config.js',
       '**/mockServiceWorker.js',
     ],

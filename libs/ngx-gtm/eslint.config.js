@@ -36,19 +36,9 @@ module.exports = [
   {
     files: ['libs/ngx-gtm/package.json'],
     language: 'json/json',
-    extends: [jsonPlugin.configs['recommended']],
     rules: {
-      '@nx/dependency-checks': ['error', { ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'] }],
-      '@nx/nx-plugin-checks': [
-        'error',
-        {
-          buildTargets: ['build'],
-          ignoredDependencies: [],
-          checkMissingDependencies: true,
-          checkObsoleteDependencies: true,
-          checkVersionMismatches: true,
-        },
-      ],
+      ...jsonPlugin.configs['recommended'].rules,
+      // '@nx/dependency-checks': ['error', { ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'] }],
     },
   },
 ];

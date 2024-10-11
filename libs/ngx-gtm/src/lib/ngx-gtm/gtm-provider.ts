@@ -44,7 +44,7 @@ export function provideGtm(config: GoogleTagManagerConfiguration): EnvironmentPr
     { provide: GTM_CONFIG_TOKEN, useValue: config },
     {
       provide: ENVIRONMENT_INITIALIZER,
-      useFactory: (platformId: Object, d: Document, { enabled, id }: GoogleTagManagerConfiguration) => {
+      useFactory: (platformId: object, d: Document, { enabled, id }: GoogleTagManagerConfiguration) => {
         return () => {
           if (isPlatformBrowser(platformId) && enabled) {
             const s = d.createElement('script');

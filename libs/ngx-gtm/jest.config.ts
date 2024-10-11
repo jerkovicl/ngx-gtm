@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'ngx-gtm',
   preset: '../../jest.preset.js',
