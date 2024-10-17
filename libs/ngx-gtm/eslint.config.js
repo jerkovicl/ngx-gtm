@@ -14,7 +14,7 @@ module.exports = [
         'error',
         {
           type: 'attribute',
-          prefix: 'fiyu',
+          prefix: 'ngx-gtm',
           style: 'camelCase',
         },
       ],
@@ -22,7 +22,7 @@ module.exports = [
         'error',
         {
           type: 'element',
-          prefix: 'fiyu',
+          prefix: 'ngx-gtm',
           style: 'kebab-case',
         },
       ],

@@ -64,44 +64,12 @@ module.exports = tseslint.config(
           allowCircularSelfDependency: false,
           enforceBuildableLibDependency: true,
           ignoredCircularDependencies: [],
-          checkDynamicDependenciesExceptions: ['@fiyu/documents', '@fiyu/notifications'],
+          checkDynamicDependenciesExceptions: [],
           allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
           depConstraints: [
             {
-              sourceTag: 'scope:shared',
-              onlyDependOnLibsWithTags: ['scope:shared'],
-            },
-            {
-              sourceTag: 'scope:admin',
-              onlyDependOnLibsWithTags: ['scope:admin', 'scope:shared'],
-            },
-            {
-              sourceTag: 'scope:client',
-              onlyDependOnLibsWithTags: ['scope:shared', 'scope:admin', 'scope:client'],
-            },
-            {
-              sourceTag: 'type:app',
-              onlyDependOnLibsWithTags: ['type:feature', 'type:shared', 'type:ui'],
-            },
-            {
-              sourceTag: 'type:e2e',
+              sourceTag: '*',
               onlyDependOnLibsWithTags: ['*'],
-            },
-            {
-              sourceTag: 'type:feature',
-              onlyDependOnLibsWithTags: ['type:shared', 'type:ui'],
-            },
-            {
-              sourceTag: 'type:ui',
-              onlyDependOnLibsWithTags: ['type:shared', 'type:ui'],
-            },
-            {
-              sourceTag: 'type:shared',
-              onlyDependOnLibsWithTags: ['type:shared'],
-            },
-            {
-              sourceTag: 'type:util',
-              onlyDependOnLibsWithTags: ['type:util'],
             },
           ],
         },
