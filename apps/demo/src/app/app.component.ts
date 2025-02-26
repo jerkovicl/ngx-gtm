@@ -1,15 +1,16 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, DestroyRef, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { DataLayerService } from '@jerkovicl/ngx-gtm';
 import { filter } from 'rxjs/operators';
 
 @Component({
-    imports: [RouterOutlet],
-    selector: 'ngx-gtm-root',
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterOutlet],
+  selector: 'ngx-gtm-root',
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   public title = 'demo';

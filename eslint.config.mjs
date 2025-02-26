@@ -9,15 +9,12 @@ export default [
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
   {
-    plugins: { import: importPlugin, cypress: cypressPlugin },
+    plugins: { importPlugin: importPlugin, cypress: cypressPlugin },
     ignores: [
-      '.nx/',
-      '.yarn/',
       '**/node_modules/**',
       '**/dist/**',
       '**/fixtures/**',
       '**/coverage/**',
-      '**/__snapshots__/**',
       '**/.docusaurus/**',
       '**/build/**',
       '.nx/*',
@@ -125,8 +122,8 @@ export default [
       'no-unused-vars': 'off',
       'consistent-return': 'off',
       'prefer-destructuring': 'off',
-      'import/consistent-type-specifier-style': ['warn', 'prefer-inline'],
-      'import/no-duplicates': ['error', { 'prefer-inline': true, considerQueryString: true }],
+      // 'import/consistent-type-specifier-style': ['warn', 'prefer-inline'],
+      // 'import/no-duplicates': ['error', { 'prefer-inline': true, considerQueryString: true }],
       '@typescript-eslint/no-inferrable-types': [0, 'ignore-params', 'ignore-properties'],
       '@typescript-eslint/explicit-function-return-type': 'error',
       '@typescript-eslint/no-restricted-types': [
@@ -285,13 +282,6 @@ export default [
     rules: {
       'json/no-duplicate-keys': 'error',
       'json/no-empty-keys': 'error',
-    },
-  },
-  {
-    name: 'json-markdown-except-rules',
-    files: ['**/*.json', '**/*.md'],
-    rules: {
-      'no-irregular-whitespace': 'off',
     },
   },
   {

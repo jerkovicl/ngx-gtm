@@ -28,6 +28,7 @@
       "!{projectRoot}/**/*.cy.[jt]s?(x)",
       "!{projectRoot}/cypress.config.[jt]s",
       "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.mjs",
       "!{projectRoot}/eslint.config.js"
     ],
     "sharedGlobals": []
@@ -55,6 +56,16 @@
       "cache": true,
       "inputs": ["default", "^production"]
     },
+    "lint": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.js",
+        "{workspaceRoot}/eslint.config.mjs"
+      ]
+    },
     "release": {
       "changelog": {
         "workspaceChangelog": {
@@ -64,17 +75,7 @@
       },
       "projects": ["libs/*"],
       "releaseTagPattern": "{version}"
-    },
-    "@nx/eslint:lint": {
-      "cache": true,
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore",
-        "{workspaceRoot}/eslint.config.js"
-      ]
     }
   },
-  "useInferencePlugins": false,
-  "useLegacyCache": true
+  "useInferencePlugins": true
 }
