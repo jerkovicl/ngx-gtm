@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/jerkovicl/ngx-gtm/compare/v1.3.0...v1.3.1) (2025-02-26)
+
+### Bug Fixes
+
+* **ngx-gtm:** resolve test issues, migrate deprecated jest functions ([e47798e](https://github.com/jerkovicl/ngx-gtm/commit/e47798e283dcf6fc2b4fdb95e0350b640985463b))
+
 ## [1.3.0](https://github.com/jerkovicl/ngx-gtm/compare/v1.2.1...v1.3.0) (2025-02-26)
 
 ### Features
