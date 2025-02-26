@@ -1,3 +1,23 @@
+## [1.3.0](https://github.com/jerkovicl/ngx-gtm/compare/v1.2.1...v1.3.0) (2025-02-26)
+
+### Features
+
+* **ngx-gtm:** upgrade to angular v19 and latest nx ([2dc2346](https://github.com/jerkovicl/ngx-gtm/commit/2dc2346d4d58b3bb8623307bdcf19185c2add1cf))
+
+### Bug Fixes
+
+* **ngx-gtm:** resolve lint errors ([05c75bd](https://github.com/jerkovicl/ngx-gtm/commit/05c75bd8262faa19a0cf652073f239aae4ffd4d3))
+* **repo:** cleanup and lint fixes ([647e0f7](https://github.com/jerkovicl/ngx-gtm/commit/647e0f7520a4586c54892d79f7157701f831630c))
+* **repo:** cleanup and lint fixes ([f1185fe](https://github.com/jerkovicl/ngx-gtm/commit/f1185fea47bc8395d92c2769d1bb3f86a225caa9))
+
+### Chores
+
+* **repo:** cleanup ([b174ada](https://github.com/jerkovicl/ngx-gtm/commit/b174ada26e08b1c150bc6499cc77354367584eb0))
+* **repo:** update angular to 18.2.4 ([60c5b94](https://github.com/jerkovicl/ngx-gtm/commit/60c5b947a666c00d86301ee640529d227a4efbd5))
+* **repo:** update angular to 18.2.8 and nx to v20 ([f5cd1f8](https://github.com/jerkovicl/ngx-gtm/commit/f5cd1f8db4b7a03ed9df738fddca57cb4854b5a1))
+* **repo:** update dependencies ([3993750](https://github.com/jerkovicl/ngx-gtm/commit/39937501505c5f64bc79b68ee6caea77d23de69f))
+* **repo:** update nx to v20.0.1 ([e8fbd02](https://github.com/jerkovicl/ngx-gtm/commit/e8fbd0293ba9999ac9da93a658c621915525b98a))
+
 ## [1.2.1](https://github.com/jerkovicl/ngx-gtm/compare/v1.2.0...v1.2.1) (2024-07-02)
 
 ### Bug Fixes
