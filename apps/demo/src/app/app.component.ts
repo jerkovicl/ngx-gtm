@@ -6,11 +6,10 @@ import { DataLayerService } from '@jerkovicl/ngx-gtm';
 import { filter } from 'rxjs/operators';
 
 @Component({
-  standalone: true,
-  imports: [RouterOutlet],
-  selector: 'ngx-gtm-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    imports: [RouterOutlet],
+    selector: 'ngx-gtm-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   public title = 'demo';

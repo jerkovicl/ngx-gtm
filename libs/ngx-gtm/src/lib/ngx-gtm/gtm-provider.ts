@@ -1,11 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import {
-  ENVIRONMENT_INITIALIZER,
-  InjectionToken,
-  makeEnvironmentProviders,
-  PLATFORM_ID,
-  type EnvironmentProviders,
-} from '@angular/core';
+import { InjectionToken, makeEnvironmentProviders, PLATFORM_ID, type EnvironmentProviders, inject, provideEnvironmentInitializer } from '@angular/core';
 
 function googleTagManagerScript(id: string): string {
   return ` window.dataLayer = window.dataLayer || []; (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -42,9 +36,8 @@ export type GoogleTagManagerConfiguration = Readonly<{
 export function provideGtm(config: GoogleTagManagerConfiguration): EnvironmentProviders {
   return makeEnvironmentProviders([
     { provide: GTM_CONFIG_TOKEN, useValue: config },
-    {
-      provide: ENVIRONMENT_INITIALIZER,
-      useFactory: (platformId: object, d: Document, { enabled, id }: GoogleTagManagerConfiguration) => {
+    provideEnvironmentInitializer(() => {
+        const initializerFn = ((platformId: object, d: Document, { enabled, id }: GoogleTagManagerConfiguration) => {
         return () => {
           if (isPlatformBrowser(platformId) && enabled) {
             const s = d.createElement('script');
@@ -53,9 +46,8 @@ export function provideGtm(config: GoogleTagManagerConfiguration): EnvironmentPr
             d.head.appendChild(s);
           }
         };
-      },
-      deps: [PLATFORM_ID, DOCUMENT, GTM_CONFIG_TOKEN],
-      multi: true,
-    },
+      })(inject(PLATFORM_ID), inject(DOCUMENT), inject(GTM_CONFIG_TOKEN));
+        return initializerFn();
+      }),
   ]);
 }

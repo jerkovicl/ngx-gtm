@@ -1,8 +1,7 @@
-const nxEslintPlugin = require('@nx/eslint-plugin');
-const baseConfig = require('../../eslint.config.js');
-const jsonPlugin = require('@eslint/json').default;
+import nxEslintPlugin from '@nx/eslint-plugin';
+import baseConfig from '../../eslint.config.mjs';
 
-module.exports = [
+export default [
   ...baseConfig,
   ...nxEslintPlugin.configs['flat/angular'],
   ...nxEslintPlugin.configs['flat/angular-template'],
@@ -30,15 +29,14 @@ module.exports = [
   },
   {
     files: ['**/*.html'],
+    // files: ['libs/ui/**/*.html'],
     // Override or add rules here
     rules: {},
   },
   {
-    files: ['libs/ngx-gtm/package.json'],
-    language: 'json/json',
+    files: ['**/*.ts'],
     rules: {
-      ...jsonPlugin.configs['recommended'].rules,
-      // '@nx/dependency-checks': ['error', { ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'] }],
+      '@angular-eslint/prefer-standalone': 'off',
     },
   },
 ];

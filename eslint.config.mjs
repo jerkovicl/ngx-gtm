@@ -1,84 +1,105 @@
-// @ts-check
-// eslint-disable-next-line n/no-extraneous-require
-const globals = require('globals');
-const js = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const { fixupPluginRules } = require('@eslint/compat');
-const nxEslintPlugin = require('@nx/eslint-plugin');
-const importPlugin = require('eslint-plugin-import');
-const angularEslintEslintPlugin = require('@angular-eslint/eslint-plugin');
-const typescriptEslintEslintPlugin = require('@typescript-eslint/eslint-plugin');
-const angularEslintEslintPluginTemplate = require('@angular-eslint/eslint-plugin-template');
-const nodeEslintPlugin = require('eslint-plugin-n');
-const storybookPlugin = require('eslint-plugin-storybook');
-const rxjsPlugin = require('eslint-plugin-rxjs');
-const rxjsAngularPlugin = require('eslint-plugin-rxjs-angular');
-const jsonPlugin = require('@eslint/json').default;
+import nx from '@nx/eslint-plugin';
+import json from '@eslint/json';
+import cypressPlugin from 'eslint-plugin-cypress/flat';
+import globals from 'globals';
+import importPlugin from 'eslint-plugin-import';
 
-// @ts-ignore
-const cypressEslintPlugin = require('eslint-plugin-cypress/flat');
+export default [
+  ...nx.configs['flat/base'],
+  ...nx.configs['flat/typescript'],
+  ...nx.configs['flat/javascript'],
+  {
+    plugins: { import: importPlugin, cypress: cypressPlugin },
+    ignores: [
+      '.nx/',
+      '.yarn/',
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/fixtures/**',
+      '**/coverage/**',
+      '**/__snapshots__/**',
+      '**/.docusaurus/**',
+      '**/build/**',
+      '.nx/*',
+      '.yarn/*',
+      '!.storybook',
+      '**/assets/**',
+      '**/eslint.config.mjs',
+      '**/jest.config.js',
+      '**/jest.config.ts',
+      '**/mockServiceWorker.js',
+    ],
 
-module.exports = tseslint.config(
-  // @ts-ignore
-  ...nxEslintPlugin.configs['flat/base'],
-  // @ts-ignore
-  ...nxEslintPlugin.configs['flat/typescript'],
-  // @ts-ignore
-  ...nxEslintPlugin.configs['flat/javascript'],
-  // @ts-ignore
-  ...nxEslintPlugin.configs['flat/angular'],
-  // @ts-ignore
-  ...nxEslintPlugin.configs['flat/angular-template'],
-  {
-    name: 'nx-base',
-    plugins: {
-      import: importPlugin,
-      // @ts-ignore
-      rxjs: fixupPluginRules(rxjsPlugin),
-      // @ts-ignore
-      'rxjs-angular': fixupPluginRules(rxjsAngularPlugin),
-      // @ts-ignore
-      json: jsonPlugin,
-      cypress: cypressEslintPlugin,
-    },
-  },
-  {
     linterOptions: {
       reportUnusedDisableDirectives: 'error',
+      reportUnusedInlineConfigs: 'error',
     },
+    /* languageOptions: {
+      globals: { ...globals.es2022, ...globals.node, ...globals.jest, ...globals.cypress },
+    }, */
+  },
+  {
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx', '**/*.cjs', '**/*.mjs'],
+    // Override or add rules here
+    rules: {},
+  },
+  ...nx.configs['flat/angular'],
+  ...nx.configs['flat/angular-template'],
+  {
+    files: ['**/*.ts'],
     languageOptions: {
-      parser: tseslint.parser,
+      // parser: tseslint.parser,
       parserOptions: {
         projectService: true,
+        tsconfigRootDir: import.meta.dirname,
         ecmaVersion: 2022,
+        isolatedDeclarations: true,
       },
       globals: { ...globals.es2022, ...globals.node, ...globals.jest, ...globals.cypress },
     },
-  },
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     rules: {
-      '@nx/enforce-module-boundaries': [
+      '@angular-eslint/directive-selector': [
         'error',
         {
-          allowCircularSelfDependency: false,
-          enforceBuildableLibDependency: true,
-          ignoredCircularDependencies: [],
-          checkDynamicDependenciesExceptions: [],
-          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
-          depConstraints: [
-            {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
-            },
-          ],
+          type: 'attribute',
+          prefix: 'ngx-gtm',
+          style: 'camelCase',
         },
       ],
+      '@angular-eslint/component-selector': [
+        'error',
+        {
+          type: 'element',
+          prefix: 'ngx-gtm',
+          style: 'kebab-case',
+        },
+      ],
+      '@angular-eslint/prefer-on-push-component-change-detection': 'warn',
+      '@angular-eslint/prefer-output-readonly': 'warn',
+      '@angular-eslint/prefer-standalone': 'error',
+      '@angular-eslint/relative-url-prefix': 'error',
+      '@angular-eslint/no-conflicting-lifecycle': 'error',
+      '@angular-eslint/no-empty-lifecycle-method': 'error',
+      '@angular-eslint/use-component-selector': 'error',
+      '@angular-eslint/no-output-on-prefix': 'error',
+      '@angular-eslint/no-input-rename': 'warn',
+      '@angular-eslint/sort-lifecycle-methods': 'error',
+      '@angular-eslint/no-async-lifecycle-method': 'error',
+      '@angular-eslint/no-duplicates-in-metadata-arrays': 'error',
+      '@angular-eslint/runtime-localize': 'error',
+      '@angular-eslint/prefer-signals': [
+        'warn',
+        {
+          preferReadonlySignalProperties: false,
+          useTypeChecking: true,
+        },
+      ],
+      '@angular-eslint/consistent-component-styles': 'warn',
       'no-constant-binary-expression': 'error',
       'no-implicit-globals': 'error',
       'no-object-constructor': 'error',
       'no-restricted-imports': [
-        'error',
+        'warn',
         {
           paths: [
             {
@@ -104,43 +125,8 @@ module.exports = tseslint.config(
       'no-unused-vars': 'off',
       'consistent-return': 'off',
       'prefer-destructuring': 'off',
-      '@angular-eslint/prefer-on-push-component-change-detection': 'warn',
-      '@angular-eslint/prefer-output-readonly': 'warn',
-      '@angular-eslint/prefer-standalone': 'error',
-      '@angular-eslint/relative-url-prefix': 'error',
-      '@angular-eslint/no-conflicting-lifecycle': 'error',
-      '@angular-eslint/no-empty-lifecycle-method': 'error',
-      '@angular-eslint/use-component-selector': 'error',
-      '@angular-eslint/no-output-on-prefix': 'error',
-      '@angular-eslint/no-input-rename': 'warn',
-      '@angular-eslint/sort-lifecycle-methods': 'error',
-      '@angular-eslint/no-async-lifecycle-method': 'error',
-      '@angular-eslint/no-duplicates-in-metadata-arrays': 'error',
-      '@angular-eslint/runtime-localize': 'error',
       'import/consistent-type-specifier-style': ['warn', 'prefer-inline'],
       'import/no-duplicates': ['error', { 'prefer-inline': true, considerQueryString: true }],
-      'rxjs/no-async-subscribe': 'error',
-      'rxjs/no-ignored-observable': 'warn',
-      'rxjs/no-ignored-subscription': 'warn',
-      'rxjs/no-unbound-methods': 'warn',
-      'rxjs/throw-error': 'warn',
-      'rxjs-angular/prefer-async-pipe': 'warn',
-      'rxjs-angular/prefer-composition': ['warn', { checkDecorators: ['Component', 'Directive', 'Pipe', 'Service'] }],
-      'rxjs-angular/prefer-takeuntil': [
-        'error',
-        {
-          alias: ['takeUntilDestroyed'],
-          checkComplete: false, // Until https://github.com/cartant/eslint-plugin-rxjs-angular/issues/16 is implemented
-          checkDecorators: ['Component', 'Directive', 'Pipe', 'Service'],
-          checkDestroy: false,
-        },
-      ],
-    },
-  },
-  {
-    files: ['**/*.ts', '**/*.tsx'],
-    languageOptions: { parser: tseslint.parser },
-    rules: {
       '@typescript-eslint/no-inferrable-types': [0, 'ignore-params', 'ignore-properties'],
       '@typescript-eslint/explicit-function-return-type': 'error',
       '@typescript-eslint/no-restricted-types': [
@@ -198,10 +184,11 @@ module.exports = tseslint.config(
       '@typescript-eslint/no-floating-promises': [
         'error',
         {
+          allowForKnownSafeCalls: [{ from: 'package', name: 'navigateByUrl', package: '@angular/router' }],
           allowForKnownSafePromises: [
             { from: 'file', name: 'SafePromise' },
-            { from: 'lib', name: 'PromiseLike' },
-            { from: 'package', name: 'Bar', package: 'bar-lib' },
+            { from: 'lib', name: '@angular/router' },
+            { from: 'package', name: 'Router', package: '@angular/router' },
           ],
           ignoreVoid: true,
         },
@@ -214,25 +201,23 @@ module.exports = tseslint.config(
       '@typescript-eslint/no-unnecessary-type-assertion': 'error',
       '@typescript-eslint/switch-exhaustiveness-check': [
         'error',
-        { allowDefaultCaseForExhaustiveSwitch: false, requireDefaultForNonUnion: true },
+        {
+          allowDefaultCaseForExhaustiveSwitch: false,
+          requireDefaultForNonUnion: true,
+          defaultCaseCommentPattern: '^skip\\sdefault',
+        },
       ],
       '@typescript-eslint/consistent-return': 'error',
       '@typescript-eslint/prefer-optional-chain': 'warn',
       '@typescript-eslint/no-dynamic-delete': 'error',
       '@typescript-eslint/no-require-imports': 'warn',
       '@typescript-eslint/no-deprecated': 'warn',
-    },
-  },
-  ...storybookPlugin.configs['flat/recommended'],
-  {
-    files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
-    rules: {
-      'storybook/hierarchy-separator': 'error',
-      'storybook/prefer-pascal-case': 'error',
+      '@typescript-eslint/no-misused-spread': 'error',
     },
   },
   {
     files: ['**/*.html'],
+    // Override or add rules here
     rules: {
       '@angular-eslint/template/no-positive-tabindex': 'warn',
       '@angular-eslint/template/no-autofocus': 'warn',
@@ -268,23 +253,14 @@ module.exports = tseslint.config(
       '@angular-eslint/template/conditional-complexity': 'warn',
       '@angular-eslint/template/prefer-ngsrc': 'warn',
       '@angular-eslint/template/prefer-control-flow': 'error',
-      '@angular-eslint/consistent-component-styles': 'warn',
-    },
-  },
-  {
-    files: ['**/*.js', '**/*.jsx'],
-    rules: {
-      ...nodeEslintPlugin.configs['flat/recommended-script'].rules,
-      'n/handle-callback-err': ['error', '^(e|err|error)$'],
-      'n/no-callback-literal': 'error',
-      'n/no-sync': 'error',
+      '@angular-eslint/template/prefer-static-string-properties': 'warn',
     },
   },
   {
     files: ['**/*.json'],
     ignores: ['package-lock.json'],
-    // @ts-ignore
     language: 'json/json',
+    ...json.configs.recommended,
     rules: {
       'json/no-duplicate-keys': 'error',
       'json/no-empty-keys': 'error',
@@ -293,6 +269,10 @@ module.exports = tseslint.config(
   {
     files: ['**/*.jsonc'],
     language: 'json/jsonc',
+    languageOptions: {
+      allowTrailinigCommas: true,
+    },
+    ...json.configs.recommended,
     rules: {
       'json/no-duplicate-keys': 'error',
       'json/no-empty-keys': 'error',
@@ -301,6 +281,7 @@ module.exports = tseslint.config(
   {
     files: ['**/*.json5'],
     language: 'json/json5',
+    ...json.configs.recommended,
     rules: {
       'json/no-duplicate-keys': 'error',
       'json/no-empty-keys': 'error',
@@ -314,29 +295,8 @@ module.exports = tseslint.config(
     },
   },
   {
-    files: ['**/*.spec.ts', '**/*.spec.tsx', '**/*.spec.js', '**/*.spec.jsx'],
-    rules: {
-      ...js.configs.recommended.rules,
-    },
-  },
-  {
     files: ['**/*.cy.ts'],
-    rules: {
-      ...cypressEslintPlugin.configs.recommended.rules,
-    },
+    ...cypressPlugin.configs.recommended,
+    rules: { 'cypress/require-data-selectors': 'warn' },
   },
-  {
-    ignores: [
-      '/libs/**/.storybook/**',
-      '/apps/**/.storybook/**',
-      '!.storybook',
-      'node_modules',
-      'dist',
-      '/apps/**/assets/**',
-      '**/package-lock.json',
-      '**/README.md',
-      '**/eslint.config.js',
-      '**/mockServiceWorker.js',
-    ],
-  },
-);
+];
