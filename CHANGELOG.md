@@ -7,7 +7,6 @@
 ### Bug Fixes
 
 * **ngx-gtm:** resolve errors for jest setup after migration to v30 ([0c14761](https://github.com/jerkovicl/ngx-gtm/commit/0c14761c6e739844310f1b97295b0138fa1b703f))
-* **repo:** add missing excel method for entities sifrarnici and temeljnice ([2424e5a](https://github.com/jerkovicl/ngx-gtm/commit/2424e5ad247ac6f869e8778bec0793ef64b980cf))
 
 ### Chores
 
