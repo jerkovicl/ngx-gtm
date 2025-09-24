@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT } from '@angular/core';
 import { getTestBed } from '@angular/core/testing';
 import { provideGtm } from './gtm-provider';
 

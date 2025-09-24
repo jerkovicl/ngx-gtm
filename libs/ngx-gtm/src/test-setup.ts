@@ -5,11 +5,11 @@ import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
 // import '@angular/localize/init';
 
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
 import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
 
 setupZoneTestEnv({ errorOnUnknownElements: true, errorOnUnknownProperties: true });
 getTestBed().resetTestEnvironment();
-getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting(), {
+getTestBed().initTestEnvironment(BrowserTestingModule, platformBrowserTesting(), {
   teardown: { destroyAfterEach: true },
 });
