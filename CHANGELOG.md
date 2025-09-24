@@ -1,3 +1,18 @@
+## [1.4.0](https://github.com/jerkovicl/ngx-gtm/compare/v1.3.1...v1.4.0) (2025-09-24)
+
+### Features
+
+* **ngx-gtm:** upgrade to angular v20 and latest nx ([b1d4a37](https://github.com/jerkovicl/ngx-gtm/commit/b1d4a378ee3c7bf58ffc55dd0178b524957fe056))
+
+### Bug Fixes
+
+* **ngx-gtm:** resolve errors for jest setup after migration to v30 ([0c14761](https://github.com/jerkovicl/ngx-gtm/commit/0c14761c6e739844310f1b97295b0138fa1b703f))
+* **repo:** add missing excel method for entities sifrarnici and temeljnice ([2424e5a](https://github.com/jerkovicl/ngx-gtm/commit/2424e5ad247ac6f869e8778bec0793ef64b980cf))
+
+### Chores
+
+* **repo:** update eslint-config-prettier ([b3f13db](https://github.com/jerkovicl/ngx-gtm/commit/b3f13dbcf3cb45da123c4ecfa57f9c43b689b5b2))
+
 ## [1.3.1](https://github.com/jerkovicl/ngx-gtm/compare/v1.3.0...v1.3.1) (2025-02-26)
 
 ### Bug Fixes
