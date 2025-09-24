@@ -25,6 +25,7 @@ yarn add @jerkovicl/ngx-gtm
 | Version | Angular Version |
 | ------- | --------------- |
 | `1.x.x` | `>=17 <=19`     |
+| `1.4.x` | `>=17 <=20`     |
 
 ## Features
 
