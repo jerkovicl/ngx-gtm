@@ -1,4 +1,4 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import {
   inject,
   InjectionToken,
@@ -6,6 +6,7 @@ import {
   PLATFORM_ID,
   provideEnvironmentInitializer,
   type EnvironmentProviders,
+  DOCUMENT
 } from '@angular/core';
 
 function googleTagManagerScript(id: string): string {

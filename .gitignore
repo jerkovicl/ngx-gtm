@@ -69,3 +69,5 @@ cypress.env.json
 # angular environment files
 **/environments/environment.*.ts
 !**/environments/environment.prod.ts
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
