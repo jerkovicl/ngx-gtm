@@ -1,3 +1,13 @@
+## [1.5.0](https://github.com/jerkovicl/ngx-gtm/compare/v1.4.0...v1.5.0) (2025-09-30)
+
+### Features
+
+* **ngx-gtm:** upgrade to latest nx ([412e2ff](https://github.com/jerkovicl/ngx-gtm/commit/412e2ffd0dd37dc6611e78dd9d1a51681c719b32))
+
+### Bug Fixes
+
+* **ngx-gtm:** change versions info in readme ([6870736](https://github.com/jerkovicl/ngx-gtm/commit/68707361dce67b426f181cf57f27c13d0e387b6c))
+
 ## [1.4.0](https://github.com/jerkovicl/ngx-gtm/compare/v1.3.1...v1.4.0) (2025-09-24)
 
 ### Features
