@@ -4,8 +4,8 @@
   },
   "name": "@jerkovicl/ngx-gtm",
   "peerDependencies": {
-    "@angular/common": "~20.3.1",
-    "@angular/core": "~20.3.1"
+    "@angular/common": "~20.3.2",
+    "@angular/core": "~20.3.2"
   },
   "publishConfig": {
     "access": "public"
