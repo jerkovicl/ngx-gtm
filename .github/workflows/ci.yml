@@ -6,9 +6,16 @@ on:
       - '*/*'
       - '**'
       - '!main'
+permissions:
+  contents: read # for checkout
 jobs:
   main:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for trusted publishing and npm provenance
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
@@ -24,6 +31,8 @@ jobs:
         run: npm install --package-lock-only
       - name: Install deps
         run: npm ci
+      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
+        run: npm audit signatures
       - name: Lint affected
         run: npx nx affected -t lint
       - name: Test affected
