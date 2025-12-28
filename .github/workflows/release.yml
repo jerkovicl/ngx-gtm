@@ -18,12 +18,14 @@ jobs:
         run: npm install --package-lock-only --force
       - name: Install deps
         run: npm ci --force
+      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
+        run: npm audit signatures
       - name: Lint
         run: npx nx run-many -t lint
       - name: Test
         run: npx nx run-many -t test --configuration=ci
       - name: Release
-        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          #NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
